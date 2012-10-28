@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'rubygems' unless defined?(Gem)
+require 'bundler/setup'
+Bundler.require
+
+lib_path = File.expand_path('../../lib', __FILE__)
+$:.unshift(lib_path) if File.directory?(lib_path) && !$:.include?(lib_path)
+
+require 'rilevel'
+require 'rilevel/server'
+
+RiLevel::Server.new.start
+
